@@ -1,6 +1,6 @@
 # codeSquad
 코드스쿼드 수업
-<code>
+
 
 <div class="out">
   <div class="middle">
@@ -8,7 +8,7 @@
   </div>
 </div>
 
-</code>
+
 
 =============
 out을 누르면 out이벤트만 발생
