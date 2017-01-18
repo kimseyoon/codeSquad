@@ -9,6 +9,29 @@
 </div>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+var out = document.querySelector(".out");
+out.addEventListener("click",function(e){
+  var event = e.target;
+  console.log("out");
+})
+
+var middle = document.querySelector(".middle");
+middle.addEventListener("click",function(e){
+  var event = e.target;
+  console.log("middle");
+})
+
+
+var inner = document.querySelector(".inner");
+inner.addEventListener("click",function(e){
+  var event = e.target;
+  if(event.className === "inner"){
+    console.log('in');
+  }
+})
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 =============
 * out을 누르면 out이벤트만 발생
