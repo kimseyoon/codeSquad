@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Tab UI</title>
+        <link rel="stylesheet" href="tab.css">
+    </head>
+    <body>
+    	<div class="wrap">
+            <h1 class="hTit">Tab 메뉴 예제입니다.</h1>
+            <div class="tab" id="tab01">
+                <div class="tabMenu">
+                    <a href="#about01" class="select">aboutMe</a>
+                    <a href="#friend01">friend</a>
+                    <a href="#lorem01">lorem</a>
+                    <a href="#reposit01">repository</a>
+                </div>
+                <div class="tabCont">
+                    <section class="select" id="about01"></section>
+                    <section id="friend01"></section>
+                    <section id="lorem01"></section>
+                    <section id="reposit01"></section>
+                </div>
+            </div>
+            <div class="tab" id="tab02">
+                <div class="tabMenu">
+                    <a href="#about02" class="select">aboutMe</a>
+                    <a href="#friend02">friend</a>
+                    <a href="#lorem02">lorem</a>
+                    <a href="#reposit02">repository</a>
+                </div>
+                <div class="tabCont">
+                    <section class="select" id="about02"></section>
+                    <section id="friend02"></section>
+                    <section id="lorem02"></section>
+                    <section id="reposit02"></section>
+                </div>
+            </div>
+        </div>
+
+        <script src="tab.js"></script>
+        <script>
+        var tab01 = new Tab("#tab01",[
+                "http://jsonplaceholder.typicode.com/posts/1",
+                "http://jsonplaceholder.typicode.com/posts/2",
+                "http://jsonplaceholder.typicode.com/posts/3",
+                "http://jsonplaceholder.typicode.com/posts/4"]);
+        var tab02 = new Tab("#tab02",[
+                "http://jsonplaceholder.typicode.com/posts/1",
+                "http://jsonplaceholder.typicode.com/posts/2",
+                "http://jsonplaceholder.typicode.com/posts/3",
+                "http://jsonplaceholder.typicode.com/posts/4"]);
+
+        /* 리터럴 방식
+            tab.init("#tab01", 
+                ["http://jsonplaceholder.typicode.com/posts/1",
+                 "http://jsonplaceholder.typicode.com/posts/2",
+                 "http://jsonplaceholder.typicode.com/posts/3",
+                 "http://jsonplaceholder.typicode.com/posts/4"]);
+            tab.init("#tab02");
+        */  
+
+        </script>
+    </body>
+</html>
