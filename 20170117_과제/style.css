@@ -24,7 +24,7 @@ header .schBox::-webkit-input-placeholder{text-align:center;}
 .writeBox .tool{position:absolute;top:30px;right:20px}
 .writeBox .btnCancel{display:none;position:absolute;top:30px;right:20px;}
 .writeBox button{padding:3px 5px;color:#fff;border-radius:3px;border:1px solid #d9d9d9;}
-.warnText{text-align:center;margin-top:20px;padding:20px 0;font-weight:bold;color:red;border-top:1px solid #c9c9c9;border-bottom:1px solid #c9c9c9;background-color:#fff;}
+.warnText{display:none;text-align:center;margin-top:20px;padding:20px 0;font-weight:bold;color:red;border-top:1px solid #c9c9c9;border-bottom:1px solid #c9c9c9;background-color:#fff;}
 .cardList li{position:relative;margin-top:20px;background-color:#fff;}
 .cardList .writerInfo{position:relative;padding:25px 20px 25px 80px;}
 .cardList .writerInfo .thumb{position:absolute;top:20px;left:20px;width:45px;height:45px;}

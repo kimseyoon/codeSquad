@@ -114,6 +114,7 @@ var basketOl = document.querySelector(".basket ol");
 basketOl.addEventListener("click", function(event){
   var evtTarget = event.target;
   var olTarget = evtTarget.parentNode;
+  console.log(olTarget);
   if(event.target.tagName !== "BUTTON"){return;}
   else{olTarget.parentNode.removeChild(olTarget);}
 })

@@ -1,3 +1,11 @@
+/*
+1. 돔 캐싱을 하자. 변수에 담아두는 것
+2. event.target을 사용하자.
+3. 범용성있게 코딩하는 생각을 하자.
+4. 그때그때 돔을 생성 제거하는 것보다 미리 만들어 두어 css스타일로 조작하는것이 더욱 효율적이다.
+*/
+
+
 // 1번문제
 function showCancelBtn(){
 	var tool = document.getElementById("tool");
@@ -59,6 +67,14 @@ function warnOverTextHide(){
 		writeBox.parentNode.removeChild(warnText);
 	}
 }
+
+function secCSS(element, styleObj){
+
+}
+
+setCss(ele, {
+	"display" : "none";
+})
 
 
 var schText = document.querySelector("#schText")
