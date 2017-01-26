@@ -1,0 +1,104 @@
+html, body, h1, div, a, ul, li, section, p, button{
+    word-break:break-all;
+    margin:0;
+    padding:0;
+    color:#666;
+    font-size:14px;
+    line-height:14px;
+    font-family: '맑은고딕', Malgun Gothic, '굴림', gulim, '돋움', dotum;
+}
+
+html, body{
+    width:100%;
+    height:100%;
+}
+
+ul, li{
+    list-style:none;
+}
+
+a:link, a:visited, a:hover, a:active{
+    text-decoration:none;
+}
+
+body{
+    min-height:700px;
+    position:relative;
+    background-color:#e7ecea;
+}
+
+.wrap{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:700px;
+    height:600px;
+    margin:-300px 0 0 -350px;
+
+}
+
+
+#ui_slider{
+    overflow:hidden;
+    position:relative;
+    width:700px;
+    height:400px;
+}
+
+#slider_list{
+    width:100%;
+}
+
+#slider_list a{
+    position:absolute;
+    width:700px;
+    padding-top:200px;
+    height:200px;
+    font-size:100px;
+    color:#fff;
+    text-align:center;
+    transition:left 1s ease-in-out;
+}
+
+#slider_list a#visual01{
+    background-color:green;
+}
+
+#slider_list a#visual02{
+    background-color:red;
+}
+
+#slider_list a#visual03{
+    background-color:blue;
+}
+
+#slider_list a#visual04{
+    background-color:yellow;
+}
+
+#ui_slider .sliderBtn{
+    cursor:pointer;
+    position:absolute;
+    text-align:center;
+    width:40px;
+    height:40px;
+    padding:0;
+    border:1px solid #dbdbdb;
+    border-radius:5px;
+}
+
+#ui_slider #prevBtn{
+    left:20px;
+    top:179px;
+}
+
+
+#ui_slider #nextBtn{
+    right:20px;
+    top:179px;
+}
+
+
+
+
+

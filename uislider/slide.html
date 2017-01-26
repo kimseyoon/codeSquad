@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>UI Slider</title>
+        <link rel="stylesheet" href="slide.css">
+    </head>
+    <body>
+    	<div class="wrap">
+
+           <section id="ui_slider">
+                <div id="slider_list">
+                    <a href="#" id="visual01">1</a>
+                    <a href="#" id="visual02">2</a>
+                    <a href="#" id="visual03">3</a>
+                    <a href="#" id="visual04">4</a>
+                </div>
+                <button class="sliderBtn" id="prevBtn">이전</button>
+                <button class="sliderBtn" id="nextBtn">다음</button>   
+           </section>
+
+        </div>
+        <script src="slide.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(){
+                var slider01 = new UiSlider({
+                    id : "#ui_slider",
+                    autoSlide : "auto",
+                    direction : "next",
+                    duration : 3000              
+                });
+            })
+        </script>
+    </body>
+</html>
