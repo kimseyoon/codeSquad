@@ -13,6 +13,9 @@
 hover하면 못움직이게
 
 2. 인디케이터
+   1. 인디케이터 버튼을 누르면 해당 버튼의 href속성값을 추출한다. 그 값은 가고자하는 슬라이드의 id값
+   2. 눌러서 나온 id값의 left값이 0이면 중지 아니면 현재 슬라이드와 인디케이터의 href비교하여 인디케이터값이 더
+   클경우 left값 뺼셈(prevBtn), 인디케이터 값이 더 작을 경우 덧셈(nextBtn)
 
 3. ajax연동
 
@@ -77,7 +80,6 @@ UiSlider.prototype.setCss = function(element, styleObj){
 
 UiSlider.prototype.changeStringToNumber = function(str){
 	return parseInt(str.replace(/(\d+)px/, "$1" ));
-	//return parseInt(str.replace(/translateX\((\d+)px.+/, "$1" ));
 }
 
 
@@ -104,10 +106,24 @@ UiSlider.prototype.mouseoutEvent = function(element, direction){
 	var thisEle = this;
 	element.addEventListener("mouseout", function(event){
 		if(direction === "next"){
-			thisEle.autoInterval = setInterval(function(){thisEle.moveNextSlide()}, thisEle.DURATION);
+			thisEle.autoInterval = setInterval(function(){
+				for(var i=0; i< thisEle.arrSlide.length;i++){
+					thisEle.setCss(thisEle.arrSlide[i], {
+						transition : "left " + 1 + "s"
+					});
+				}
+				thisEle.moveNextSlide()
+			}, thisEle.DURATION);
 		}
 		else if(direction === "prev"){
-			thisEle.autoInterval = setInterval(function(){thisEle.movePrevSlide()}, thisEle.DURATION);	
+			thisEle.autoInterval = setInterval(function(){
+				for(var i=0; i< thisEle.arrSlide.length;i++){
+					thisEle.setCss(thisEle.arrSlide[i], {
+						transition : "left " + 1 + "s"
+					});
+				}
+				thisEle.movePrevSlide()
+			}, thisEle.DURATION);	
 		}
 	})
 }
@@ -118,6 +134,13 @@ UiSlider.prototype.clickEvent = function(element){
 	var thisEle = this;
 	element.addEventListener("click", function(event){
 		var target = event.target;
+		event.preventDefault();
+
+		for(var i=0; i< thisEle.arrSlide.length;i++){
+			thisEle.setCss(thisEle.arrSlide[i], {
+				transition : "left " + 1 + "s"
+			});
+		}
 
 		if(thisEle.arrSlide.length < 2){
 			return;
@@ -130,6 +153,10 @@ UiSlider.prototype.clickEvent = function(element){
 		}
 		else if(target.id === "prevBtn"){
 			thisEle.movePrevSlide();
+		}
+
+		if(target.parentElement.id === "indicator"){
+			thisEle.indicator(target.getAttribute("href"));
 		}
 	})
 }
@@ -172,6 +199,7 @@ UiSlider.prototype.moveNextSlide = function(){
 
 
 UiSlider.prototype.movePrevSlide = function(){
+
 	this.setListArr("#slider_list a");
 	var beforeWidth = 0;
 
@@ -196,3 +224,48 @@ UiSlider.prototype.prependChild = function(parent, newFirstChild){
 }
 
 
+UiSlider.prototype.indicator = function(targetNum){
+
+	for(var i=0; i< this.arrSlide.length;i++){
+		this.setCss(this.arrSlide[i], {
+			transition : "left " + 0 + "s"
+		});
+	}
+
+	this.setListArr("#slider_list a");
+
+	var left=0;
+	var nowSlideId;
+	var nowNum=0;
+	var indiNum=0;
+
+	for(var i = 0; i<this.arrSlide.length; i++){
+		left = this.getCss(this.arrSlide[i], "left");
+		if(left === 0){
+			nowSlideId = this.arrSlide[i].id;
+		}
+	}
+
+	nowNum = parseInt(nowSlideId.replace(/visual(\d+)/, "$1"));
+	indiNum = parseInt(targetNum.replace(/visual(\d+)/, "$1"));
+
+	if(nowNum === indiNum){
+		return;
+	}
+
+	if(nowNum > indiNum){
+		gap = nowNum - indiNum;
+		for(var i = 0 ; i<gap ; i++){
+			this.movePrevSlide();
+		}
+		
+	}
+
+	else if(nowNum < indiNum){
+		gap = indiNum - nowNum; 
+		for(var i = 0 ; i<gap ; i++){
+			this.moveNextSlide();
+		}
+	}
+
+}

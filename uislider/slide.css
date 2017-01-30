@@ -98,6 +98,23 @@ body{
     top:179px;
 }
 
+#indicator{
+    position:absolute;
+    bottom:50px;
+    right:20px;
+}
+
+#indicator a{
+    display:inline-block;
+    width:15px;
+    height:15px;
+    margin-right:10px;
+    background-color:#fff;
+}
+
+#indicator a:hover{
+    background-color:#000;
+}
 
 
 
